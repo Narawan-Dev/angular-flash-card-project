@@ -1,0 +1,72 @@
+.flash-card-container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+}
+  
+.flash-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+    transform-origin: center;
+    background: transparent;
+}
+  
+.flash-card.flipped {
+    transform: rotateY(180deg);
+}
+  
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    font-family: 'zilla slab', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 16px; /* เพิ่ม padding ให้เท่ากัน */
+    box-sizing: border-box;
+  } 
+  
+.card-front {
+    background: #ffc728;
+    color: #333;
+}
+  
+.card-back {
+    background: #fafafa;
+    color: #333;
+    transform: rotateY(180deg);
+}
+  
+.card-face img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px; /* เพิ่มระยะห่างระหว่างปุ่ม */
+    margin-top: 16px; /* เพิ่มระยะห่างด้านบน */
+}
+  
+button {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'zilla slab', sans-serif;
+}
+  

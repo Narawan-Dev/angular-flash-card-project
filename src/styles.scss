@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.perspective {
+    perspective: 1000px;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.rotate-y-180 {
+    transform: rotateY(180deg);
+}
