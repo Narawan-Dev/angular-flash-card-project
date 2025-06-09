@@ -1,25 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 
-html, body {
-    height: 100%;
-}
-body {
-    margin: 0; 
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-.perspective {
-    perspective: 1000px;
-}
-
-.backface-hidden {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.rotate-y-180 {
-    transform: rotateY(180deg);
+html {
+  color-scheme: light dark;
+  @include mat.theme((
+    color: mat.$orange-palette,
+    typography: Roboto,
+    density: 0
+  ));
 }

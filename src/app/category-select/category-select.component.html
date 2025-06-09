@@ -1,0 +1,13 @@
+<div fxLayout="column" fxLayoutAlign="center center" style="text-align: center; margin-bottom: 16px;">
+  <h2 style="color: #ffffff;">เลือกหมวดคำศัพท์</h2>
+  <mat-slide-toggle [(ngModel)]="isReversed" (ngModelChange)="saveReverseState()">
+    <span style="color: #ffffff;">🔄 สลับคำถาม/คำตอบ</span>
+  </mat-slide-toggle>
+</div>
+<mat-list>
+  <mat-list-item *ngFor="let category of categories">
+    <button mat-raised-button (click)="selectCategory(category)" style="width: 100%;">
+      {{ category.categoryName }}
+    </button>
+  </mat-list-item>
+</mat-list>

@@ -4,6 +4,11 @@
     height: 400px;
     margin: 0 auto;
 }
+
+.flash-card.forgotten {
+    border-radius: 20px;
+    box-shadow: 0 0 0 3px red;
+}
   
 .flash-card {
     width: 100%;
@@ -36,8 +41,13 @@
     font-weight: bold;
     padding: 16px; /* เพิ่ม padding ให้เท่ากัน */
     box-sizing: border-box;
-  } 
+}
   
+.card-end {
+    background: #83da96;
+    color: #333;
+}
+
 .card-front {
     background: #ffc728;
     color: #333;
@@ -69,4 +79,4 @@ button {
     font-weight: bold;
     font-family: 'zilla slab', sans-serif;
 }
-  
+

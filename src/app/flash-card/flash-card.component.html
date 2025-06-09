@@ -1,18 +1,29 @@
-<div class="flash-card-container" (click)="toggleFlip()">
-    <mat-card class="flash-card" [class.flipped]="isFlipped">
+<div class="flash-card-container" *ngIf="remainingCards.length > 0" (click)="toggleFlip()">
+    <mat-card class="flash-card" [class.flipped]="isFlipped" [class.forgotten]="isForgotten">
       <!-- ด้านหน้า -->
       <div class="card-face card-front">
-        <h2>{{ flashCard.frontTitle }}</h2>
+        <h2>{{ getFrontTitle(currentCard) }}</h2>
       </div>
       <!-- ด้านหลัง -->
       <div class="card-face card-back">
-        <img [src]="flashCard.backImage" alt="Image" />
-        <h3>{{ flashCard.backTitle }}</h3>
+        <img [src]="getBackImage(currentCard)" alt="Image" />
+        <h3>{{ getBackTitle(currentCard) }}</h3>
       </div>
     </mat-card>
 </div>
-<div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%; max-width: 400px; margin: 0 auto; padding: 16px;">
-    <button mat-raised-button color="warn">จำไม่ได้</button>
-    <button mat-raised-button color="primary">จำได้แล้ว</button>
+
+<div class="flash-card-container" *ngIf="remainingCards.length === 0">
+  <mat-card class="flash-card">
+    <div class="card-face card-end">
+      <h2>🎉 เก่งมาก!</h2>
+      <p>คุณจำได้ครบทุกคำแล้ว</p>
+    </div>
+  </mat-card>
 </div>
-  
+
+<div *ngIf="this.remainingCards.length > 0" 
+  fxLayout="row" fxLayoutAlign="space-between center"
+  style="width: 100%; max-width: 400px; margin: 0 auto; padding: 16px;">
+    <button mat-raised-button (click)="dontRemember()">จำไม่ได้</button>
+    <button mat-raised-button (click)="remember()">จำได้แล้ว</button>
+</div>
