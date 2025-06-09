@@ -1,10 +1,17 @@
 @use '@angular/material' as mat;
 
-html {
-  color-scheme: light dark;
-  @include mat.theme((
-    color: mat.$orange-palette,
-    typography: Roboto,
-    density: 0
-  ));
+html, body {
+  height: 100%;
+  font-family: Mali, 'Mali', sans-serif;
+
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$orange-palette,
+      ),
+      typography: Mali,
+      density: 0,
+    )
+  );
 }

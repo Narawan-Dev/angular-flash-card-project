@@ -5,13 +5,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@ngbracket/ngx-layout';
 import { FlashCardCategory } from '../models/flash-card-category.model';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   imports: [ 
     CommonModule,
     MatCardModule,
     MatButtonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatIconModule
   ],
   selector: 'app-flash-card',
   templateUrl: './flash-card.component.html',
@@ -43,6 +45,10 @@ export class FlashCardComponent {
 
   getBackImage(card: FlashCard): string {
     return card.backImage;
+  }
+
+  getDescription(card: FlashCard): string {
+    return "(" + card.description + ")" || '';
   }
 
   pickRandomCard(): void {

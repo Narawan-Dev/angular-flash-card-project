@@ -8,6 +8,7 @@
       <div class="card-face card-back">
         <img [src]="getBackImage(currentCard)" alt="Image" />
         <h3>{{ getBackTitle(currentCard) }}</h3>
+        <h5 style="color: gray;">{{ getDescription(currentCard) }}</h5>
       </div>
     </mat-card>
 </div>
@@ -15,8 +16,8 @@
 <div class="flash-card-container" *ngIf="remainingCards.length === 0">
   <mat-card class="flash-card">
     <div class="card-face card-end">
-      <h2>🎉 เก่งมาก!</h2>
-      <p>คุณจำได้ครบทุกคำแล้ว</p>
+      <h2 style="margin-top: 0px;">🎉 เก่งมาก!</h2>
+      <span fxLayoutAlign="center center" style="text-align: center; font-size: large;">คุณจำได้ครบทุกคำแล้ว</span>
     </div>
   </mat-card>
 </div>
@@ -24,6 +25,10 @@
 <div *ngIf="this.remainingCards.length > 0" 
   fxLayout="row" fxLayoutAlign="space-between center"
   style="width: 100%; max-width: 400px; margin: 0 auto; padding: 16px;">
-    <button mat-raised-button (click)="dontRemember()">จำไม่ได้</button>
-    <button mat-raised-button (click)="remember()">จำได้แล้ว</button>
+    <button mat-raised-button (click)="dontRemember()">
+      <mat-icon>close</mat-icon> จำไม่ได้
+    </button>
+    <button mat-raised-button (click)="remember()">
+      <mat-icon>check</mat-icon> จำได้แล้ว
+    </button>
 </div>

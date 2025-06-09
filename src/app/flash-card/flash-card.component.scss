@@ -36,7 +36,6 @@
     justify-content: center;
     align-items: center;
   
-    font-family: 'zilla slab', sans-serif;
     font-size: 28px;
     font-weight: bold;
     padding: 16px; /* เพิ่ม padding ให้เท่ากัน */
@@ -73,10 +72,5 @@
     gap: 16px; /* เพิ่มระยะห่างระหว่างปุ่ม */
     margin-top: 16px; /* เพิ่มระยะห่างด้านบน */
 }
-  
-button {
-    font-size: 16px;
-    font-weight: bold;
-    font-family: 'zilla slab', sans-serif;
-}
+
 
