@@ -22,14 +22,28 @@ import { MatIconModule } from '@angular/material/icon';
 export class FlashCardComponent {
   @Input() category!: FlashCardCategory;
   @Input() isReversed: boolean = false;
+  @Input() isShowDescription: boolean = false;
 
   remainingCards: FlashCard[] = [];
   forgottenCards: FlashCard[] = [];
   currentCard!: FlashCard;
   isFlipped = false;
   isForgotten = false;
+  isCardVisible = true;
+
+  voices: SpeechSynthesisVoice[] = [];
 
   ngOnInit(): void {
+    // โหลดเสียงเมื่อคอมโพเนนต์ถูกสร้าง
+    if ('speechSynthesis' in window) {
+      this.voices = window.speechSynthesis.getVoices();
+
+      // รอให้เสียงถูกโหลด (สำหรับบางเบราว์เซอร์ เช่น Safari)
+      window.speechSynthesis.onvoiceschanged = () => {
+        this.voices = window.speechSynthesis.getVoices();
+      };
+    }
+
     // Clone cards เพื่อไม่กระทบต้นฉบับ
     this.remainingCards = [...this.category.cards];
     this.pickRandomCard();
@@ -47,8 +61,12 @@ export class FlashCardComponent {
     return card.backImage;
   }
 
-  getDescription(card: FlashCard): string {
-    return "(" + card.description + ")" || '';
+  getFrontDescription(card: FlashCard): string {
+    return this.isReversed ? (card.backDescription ? "(" + card.backDescription + ")" : '') : (card.frontDescription ? "(" + card.frontDescription + ")" : '');
+  }
+  
+  getBackDescription(card: FlashCard): string {
+    return this.isReversed ? (card.frontDescription ? "(" + card.frontDescription + ")" : '') : (card.backDescription ? "(" + card.backDescription + ")" : '') ;
   }
 
   pickRandomCard(): void {
@@ -67,22 +85,56 @@ export class FlashCardComponent {
     const index = Math.floor(Math.random() * total);
     this.currentCard = this.remainingCards[index];
     this.isFlipped = false;
+    this.isCardVisible = true;
   }
 
   remember(): void {
-    // ลบ card นี้ออกจาก remainingCards
-    this.remainingCards = this.remainingCards.filter(card => card !== this.currentCard);
-    this.pickRandomCard();
+    if (this.isFlipped) {
+      this.isFlipped = false;
+      this.isCardVisible = false;
+    }
+
+    setTimeout(() => {
+      this.remainingCards = this.remainingCards.filter(card => card !== this.currentCard);
+      this.pickRandomCard();
+    }, 100);
   }
 
   dontRemember(): void {
-    // ย้าย card นี้ไปยัง forgottenCards
-    this.forgottenCards.push(this.currentCard);
-    this.remainingCards = this.remainingCards.filter(card => card !== this.currentCard);
-    this.pickRandomCard();
+    if (this.isFlipped) {
+      this.isFlipped = false;
+      this.isCardVisible = false;
+    }
+
+    setTimeout(() => {
+      this.forgottenCards.push(this.currentCard);
+      this.remainingCards = this.remainingCards.filter(card => card !== this.currentCard);
+      this.pickRandomCard();
+    }, 100);
   }
 
   toggleFlip(): void {
     this.isFlipped = !this.isFlipped;
+  }
+
+  speakText(text: string): void {
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(text);
+
+      // กำหนดภาษา
+      if (/[\u0E00-\u0E7F]/.test(text)) {
+        utterance.lang = 'th-TH';
+      } else {
+        utterance.lang = 'en-US';
+      }
+
+      // เลือกเสียงที่ตรงกับภาษา
+      utterance.voice = this.voices.find(voice => voice.lang === utterance.lang) || null;
+
+      // พูดข้อความ
+      window.speechSynthesis.speak(utterance);
+    } else {
+      console.error('Web Speech API ไม่รองรับในเบราว์เซอร์นี้');
+    }
   }
 }

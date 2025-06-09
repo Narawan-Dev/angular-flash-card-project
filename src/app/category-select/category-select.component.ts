@@ -6,6 +6,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FlexLayoutModule } from '@ngbracket/ngx-layout';
 
 @Component({
   selector: 'app-category-select',
@@ -14,7 +15,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatListModule,
     MatButtonModule,
     FormsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    FlexLayoutModule
   ],
   templateUrl: './category-select.component.html',
   styleUrls: ['./category-select.component.scss']
@@ -22,22 +24,35 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 export class CategorySelectComponent {
   categories = mockCategories;
   isReversed = false;
+  isShowDescription = false;
 
-  @Output() categorySelected = new EventEmitter<{ category: FlashCardCategory; isReversed: boolean }>();
+  @Output() categorySelected = new EventEmitter<{ category: FlashCardCategory; isReversed: boolean; isShowDescription: boolean }>();
 
   ngOnInit(): void {
-    // ดึงค่าจาก localStorage เมื่อคอมโพเนนต์โหลด
     const savedIsReversed = localStorage.getItem('isReversed');
     if (savedIsReversed !== null) {
-      this.isReversed = JSON.parse(savedIsReversed); // แปลงค่ากลับเป็น boolean
+      this.isReversed = JSON.parse(savedIsReversed);
+    }
+
+    const savedIsShowDescription = localStorage.getItem('isShowDescription');
+    if (savedIsShowDescription !== null) {
+      this.isShowDescription = JSON.parse(savedIsShowDescription);
     }
   }
 
   selectCategory(category: FlashCardCategory) {
-    this.categorySelected.emit({ category, isReversed: this.isReversed });
+    this.categorySelected.emit({ category, isReversed: this.isReversed, isShowDescription: this.isShowDescription });
   }
 
   saveReverseState(): void {
     localStorage.setItem('isReversed', JSON.stringify(this.isReversed));
+  }
+
+  getCategoryName(category: FlashCardCategory): string {
+    return this.isReversed ? category.backCategoryName : category.frontCategoryName;
+  }
+
+  saveDescriptionState(): void {
+    localStorage.setItem('isShowDescription', JSON.stringify(this.isShowDescription));
   }
 }

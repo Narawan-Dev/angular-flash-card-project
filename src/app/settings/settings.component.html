@@ -1,0 +1,14 @@
+<button mat-raised-button style="margin-bottom: 16px;" routerLink="/">
+    <mat-icon style="margin: 0;">arrow_back</mat-icon>
+</button>
+<h2 style="color: #ffffff;">ตั้งค่า</h2>
+<div style="margin-bottom: 16px;">
+    <mat-slide-toggle [(ngModel)]="isReversed" (ngModelChange)="saveReverseState()">
+        <span style="color: #ffffff;">สลับคำถาม/คำตอหหบ</span>
+    </mat-slide-toggle>
+</div>
+<div style="margin-bottom: 16px;">
+    <mat-slide-toggle [(ngModel)]="isShowDescription" (ngModelChange)="saveDescriptionState()">
+        <span style="color: #ffffff;">ไม่แสดง/แสดงคำอธิบาย</span>
+    </mat-slide-toggle>
+</div>

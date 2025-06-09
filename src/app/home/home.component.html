@@ -1,0 +1,24 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="container">
+    <div *ngIf="!selectedCategory" class="content">
+        <!-- ปุ่มตั้งค่า -->
+        <div style="text-align: right; margin-bottom: 16px;">
+            <button mat-raised-button color="primary" routerLink="/settings">
+                <mat-icon style="margin: 0;">settings</mat-icon>
+            </button>
+        </div>
+
+        <app-category-select (categorySelected)="onCategorySelected($event)"></app-category-select>
+    </div>
+
+    <div *ngIf="selectedCategory" class="content">
+        <!-- ปุ่มย้อนกลับ -->
+        <button mat-raised-button (click)="resetCategory()" style="margin-bottom: 16px;"><mat-icon style="margin: 0;">arrow_back</mat-icon></button>
+
+        <!-- แสดง Flash Card -->
+        <app-flash-card
+            [category]="selectedCategory"
+            [isReversed]="isReversed"
+            [isShowDescription]="isShowDescription">
+        </app-flash-card>
+    </div>
+</div>

@@ -2,63 +2,67 @@ import { FlashCardCategory } from "../models/flash-card-category.model";
 
 export const mockCategories: FlashCardCategory[] = [
   {
-    categoryName: "ร่างกาย",
+    frontCategoryName: "body",
+    backCategoryName: "ร่างกาย",
     cards: [
-      { frontTitle: "ตา", backTitle: "eye", backImage: "assets/images/eye.png", description: "อาย" },
-      { frontTitle: "มือ", backTitle: "hand", backImage: "assets/images/hand.png", description: "แฮนด์" },
-      { frontTitle: "หัวใจ", backTitle: "heart", backImage: "assets/images/heart.png", description: "ฮาร์ท" },
-      { frontTitle: "หู", backTitle: "ear", backImage: "assets/images/ear.png", description: "เอียร์" },
-      { frontTitle: "จมูก", backTitle: "nose", backImage: "assets/images/nose.png", description: "โนส" },
-      { frontTitle: "ปาก", backTitle: "mouth", backImage: "assets/images/mouth.png", description: "เมาธ์" },
-      { frontTitle: "เท้า", backTitle: "foot", backImage: "assets/images/foot.png", description: "ฟุต" },
-      { frontTitle: "ขา", backTitle: "leg", backImage: "assets/images/leg.png", description: "เลก" },
-      { frontTitle: "แขน", backTitle: "arm", backImage: "assets/images/arm.png", description: "อาร์ม" },
-      { frontTitle: "นิ้ว", backTitle: "finger", backImage: "assets/images/finger.png", description: "ฟิงเกอะ" }
+      { frontTitle: "eye", frontDescription: "อาย", backTitle: "ตา", backDescription: null, backImage: "assets/images/eye.png" },
+      { frontTitle: "hand", frontDescription: "แฮนด์", backTitle: "มือ", backDescription: null, backImage: "assets/images/hand.png" },
+      { frontTitle: "heart", frontDescription: "ฮาร์ท", backTitle: "หัวใจ", backDescription: null, backImage: "assets/images/heart.png" },
+      { frontTitle: "ear", frontDescription: "เอียร์", backTitle: "หู", backDescription: null, backImage: "assets/images/ear.png" },
+      { frontTitle: "nose", frontDescription: "โนส", backTitle: "จมูก", backDescription: null, backImage: "assets/images/nose.png" },
+      { frontTitle: "mouth", frontDescription: "เมาธ์", backTitle: "ปาก", backDescription: null, backImage: "assets/images/mouth.png" },
+      { frontTitle: "foot", frontDescription: "ฟุต", backTitle: "เท้า", backDescription: null, backImage: "assets/images/foot.png" },
+      { frontTitle: "leg", frontDescription: "เลก", backTitle: "ขา", backDescription: null, backImage: "assets/images/leg.png" },
+      { frontTitle: "arm", frontDescription: "อาร์ม", backTitle: "แขน", backDescription: null, backImage: "assets/images/arm.png" },
+      { frontTitle: "finger", frontDescription: "ฟิงเกอะ", backTitle: "นิ้ว", backDescription: null, backImage: "assets/images/finger.png" }
     ]
   },
   {
-    categoryName: "ของใช้ในครัว",
+    frontCategoryName: "kitchen items",
+    backCategoryName: "ของใช้ในครัว",
     cards: [
-      { frontTitle: "กระทะ", backTitle: "pan", backImage: "assets/images/pan.png", description: "แพน" },
-      { frontTitle: "ช้อน", backTitle: "spoon", backImage: "assets/images/spoon.png", description: "สปูน" },
-      { frontTitle: "มีด", backTitle: "knife", backImage: "assets/images/knife.png", description: "ไนฟ์" },
-      { frontTitle: "ส้อม", backTitle: "fork", backImage: "assets/images/fork.png", description: "ฟอร์ค" },
-      { frontTitle: "ถ้วย", backTitle: "bowl", backImage: "assets/images/bowl.png", description: "โบล" },
-      { frontTitle: "จาน", backTitle: "plate", backImage: "assets/images/plate.png", description: "เพลท" },
-      { frontTitle: "แก้วน้ำ", backTitle: "glass", backImage: "assets/images/glass.png", description: "กลาส" },
-      { frontTitle: "หม้อ", backTitle: "pot", backImage: "assets/images/pot.png", description: "พ็อท" },
-      { frontTitle: "เตาแก๊ส", backTitle: "stove", backImage: "assets/images/stove.png", description: "สโตฟ" },
-      { frontTitle: "ตู้เย็น", backTitle: "refrigerator", backImage: "assets/images/refrigerator.png", description: "รีฟริจเจอเรเทอะ" }
+      { frontTitle: "pan", frontDescription: "แพน", backTitle: "กระทะ", backDescription: null, backImage: "assets/images/pan.png" },
+      { frontTitle: "spoon", frontDescription: "สปูน", backTitle: "ช้อน", backDescription: null, backImage: "assets/images/spoon.png" },
+      { frontTitle: "knife", frontDescription: "ไนฟ์", backTitle: "มีด", backDescription: null, backImage: "assets/images/knife.png" },
+      { frontTitle: "fork", frontDescription: "ฟอร์ค", backTitle: "ส้อม", backDescription: null, backImage: "assets/images/fork.png" },
+      { frontTitle: "bowl", frontDescription: "โบล", backTitle: "ถ้วย", backDescription: null, backImage: "assets/images/bowl.png" },
+      { frontTitle: "plate", frontDescription: "เพลท", backTitle: "จาน", backDescription: null, backImage: "assets/images/plate.png" },
+      { frontTitle: "glass", frontDescription: "กลาส", backTitle: "แก้วน้ำ", backDescription: null, backImage: "assets/images/glass.png" },
+      { frontTitle: "pot", frontDescription: "พ็อท", backTitle: "หม้อ", backDescription: null, backImage: "assets/images/pot.png" },
+      { frontTitle: "stove", frontDescription: "สโตฟ", backTitle: "เตาแก๊ส", backDescription: null, backImage: "assets/images/stove.png" },
+      { frontTitle: "refrigerator", frontDescription: "รีฟริจเจอเรเทอะ", backTitle: "ตู้เย็น", backDescription: null, backImage: "assets/images/refrigerator.png" }
     ]
   },
   {
-    categoryName: "สัตว์",
+    frontCategoryName: "animals",
+    backCategoryName: "สัตว์",
     cards: [
-      { frontTitle: "แมว", backTitle: "cat", backImage: "assets/images/cat.png", description: "แคท" },
-      { frontTitle: "หมา", backTitle: "dog", backImage: "assets/images/dog.png", description: "ด็อก" },
-      { frontTitle: "นก", backTitle: "bird", backImage: "assets/images/bird.png", description: "เบิร์ด" },
-      { frontTitle: "ปลา", backTitle: "fish", backImage: "assets/images/fish.png", description: "ฟิช" },
-      { frontTitle: "ม้า", backTitle: "horse", backImage: "assets/images/horse.png", description: "ฮอร์ส" },
-      { frontTitle: "วัว", backTitle: "cow", backImage: "assets/images/cow.png", description: "คาว" },
-      { frontTitle: "หมู", backTitle: "pig", backImage: "assets/images/pig.png", description: "พิก" },
-      { frontTitle: "กระต่าย", backTitle: "rabbit", backImage: "assets/images/rabbit.png", description: "แรบบิท" },
-      { frontTitle: "ไก่", backTitle: "chicken", backImage: "assets/images/chicken.png", description: "ชิคเคิน" },
-      { frontTitle: "หมี", backTitle: "bear", backImage: "assets/images/bear.png", description: "แบร์" }
+      { frontTitle: "cat", frontDescription: "แคท", backTitle: "แมว", backDescription: null, backImage: "assets/images/cat.png" },
+      { frontTitle: "dog", frontDescription: "ด็อก", backTitle: "หมา", backDescription: null, backImage: "assets/images/dog.png" },
+      { frontTitle: "bird", frontDescription: "เบิร์ด", backTitle: "นก", backDescription: null, backImage: "assets/images/bird.png" },
+      { frontTitle: "fish", frontDescription: "ฟิช", backTitle: "ปลา", backDescription: null, backImage: "assets/images/fish.png" },
+      { frontTitle: "horse", frontDescription: "ฮอร์ส", backTitle: "ม้า", backDescription: null, backImage: "assets/images/horse.png" },
+      { frontTitle: "cow", frontDescription: "คาว", backTitle: "วัว", backDescription: null, backImage: "assets/images/cow.png" },
+      { frontTitle: "pig", frontDescription: "พิก", backTitle: "หมู", backDescription: null, backImage: "assets/images/pig.png" },
+      { frontTitle: "rabbit", frontDescription: "แรบบิท", backTitle: "กระต่าย", backDescription: null, backImage: "assets/images/rabbit.png" },
+      { frontTitle: "chicken", frontDescription: "ชิคเคิน", backTitle: "ไก่", backDescription: null, backImage: "assets/images/chicken.png" },
+      { frontTitle: "bear", frontDescription: "แบร์", backTitle: "หมี", backDescription: null, backImage: "assets/images/bear.png" }
     ]
   },
   {
-    categoryName: "ผลไม้",
+    frontCategoryName: "fruits",
+    backCategoryName: "ผลไม้",
     cards: [
-      { frontTitle: "แอปเปิ้ล", backTitle: "apple", backImage: "assets/images/apple.png", description: "แอพเพิล" },
-      { frontTitle: "กล้วย", backTitle: "banana", backImage: "assets/images/banana.png", description: "บะนานา" },
-      { frontTitle: "ส้ม", backTitle: "orange", backImage: "assets/images/orange.png", description: "ออเรนจ์" },
-      { frontTitle: "แตงโม", backTitle: "watermelon", backImage: "assets/images/watermelon.png", description: "วอเทอะเมลอน" },
-      { frontTitle: "องุ่น", backTitle: "grape", backImage: "assets/images/grape.png", description: "เกรพ" },
-      { frontTitle: "มะม่วง", backTitle: "mango", backImage: "assets/images/mango.png", description: "แมงโก้" },
-      { frontTitle: "สตรอว์เบอร์รี", backTitle: "strawberry", backImage: "assets/images/strawberry.png", description: "สตรอเบอรี" },
-      { frontTitle: "กีวี", backTitle: "kiwi", backImage: "assets/images/kiwi.png", description: "คีวี" },
-      { frontTitle: "มะละกอ", backTitle: "papaya", backImage: "assets/images/papaya.png", description: "พะพายา" },
-      { frontTitle: "มะพร้าว", backTitle: "coconut", backImage: "assets/images/coconut.png", description: "โคโคนัท" }
+      { frontTitle: "apple", frontDescription: "แอพเพิล", backTitle: "แอปเปิ้ล", backDescription: null, backImage: "assets/images/apple.png" },
+      { frontTitle: "banana", frontDescription: "บะนานา", backTitle: "กล้วย", backDescription: null, backImage: "assets/images/banana.png" },
+      { frontTitle: "orange", frontDescription: "ออเรนจ์", backTitle: "ส้ม", backDescription: null, backImage: "assets/images/orange.png" },
+      { frontTitle: "watermelon", frontDescription: "วอเทอะเมลอน", backTitle: "แตงโม", backDescription: null, backImage: "assets/images/watermelon.png" },
+      { frontTitle: "grape", frontDescription: "เกรพ", backTitle: "องุ่น", backDescription: null, backImage: "assets/images/grape.png" },
+      { frontTitle: "mango", frontDescription: "แมงโก้", backTitle: "มะม่วง", backDescription: null, backImage: "assets/images/mango.png" },
+      { frontTitle: "strawberry", frontDescription: "สตรอเบอรี", backTitle: "สตรอว์เบอร์รี", backDescription: null, backImage: "assets/images/strawberry.png" },
+      { frontTitle: "kiwi", frontDescription: "คีวี", backTitle: "กีวี", backDescription: null, backImage: "assets/images/kiwi.png" },
+      { frontTitle: "papaya", frontDescription: "พะพายา", backTitle: "มะละกอ", backDescription: null, backImage: "assets/images/papaya.png" },
+      { frontTitle: "coconut", frontDescription: "โคโคนัท", backTitle: "มะพร้าว", backDescription: null, backImage: "assets/images/coconut.png" }
     ]
   }
 ];

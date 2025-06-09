@@ -1,12 +1,1 @@
-<div *ngIf="!selectedCategory">
-    <app-category-select (categorySelected)="onCategorySelected($event)"></app-category-select>
-</div>
-
-<div *ngIf="selectedCategory">
-    <!-- ปุ่มย้อนกลับ -->
-    <button mat-raised-button (click)="resetCategory()" style="margin-bottom: 16px;">← ย้อนกลับไปเลือกหมวดหมู่</button>
-
-    <!-- แสดง Flash Card -->
-    <app-flash-card [category]="selectedCategory" [isReversed]="isReversed"></app-flash-card>
-</div>
-<router-outlet />
+<router-outlet></router-outlet>

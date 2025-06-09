@@ -1,14 +1,21 @@
 <div class="flash-card-container" *ngIf="remainingCards.length > 0" (click)="toggleFlip()">
     <mat-card class="flash-card" [class.flipped]="isFlipped" [class.forgotten]="isForgotten">
       <!-- ด้านหน้า -->
-      <div class="card-face card-front">
-        <h2>{{ getFrontTitle(currentCard) }}</h2>
+      <div class="card-face card-front" *ngIf="isCardVisible">
+        <h2 style="margin: 0;">{{ getFrontTitle(currentCard) }}</h2>
+        <p style="color: gray; font-size: small;" *ngIf="isShowDescription">{{ getFrontDescription(currentCard) }}</p> 
+        <button *ngIf="!isFlipped" mat-raised-button color="accent" style="margin-top: 15px;" (click)="speakText(getFrontTitle(currentCard)); $event.stopPropagation()">
+          <mat-icon style="margin: 0;">volume_up</mat-icon>
+        </button>
       </div>
       <!-- ด้านหลัง -->
       <div class="card-face card-back">
         <img [src]="getBackImage(currentCard)" alt="Image" />
-        <h3>{{ getBackTitle(currentCard) }}</h3>
-        <h5 style="color: gray;">{{ getDescription(currentCard) }}</h5>
+        <h3 style="margin-top: 15px; margin-bottom: 0px;">{{ getBackTitle(currentCard) }}</h3>
+        <p style="color: gray; font-size: small;" *ngIf="isShowDescription">{{ getBackDescription(currentCard) }}</p>
+        <button *ngIf="isFlipped" mat-raised-button color="accent" style="margin-top: 15px;" (click)="speakText(getBackTitle(currentCard)); $event.stopPropagation()">
+          <mat-icon style="margin: 0;">volume_up</mat-icon>
+        </button>
       </div>
     </mat-card>
 </div>
