@@ -15,3 +15,40 @@ html, body {
     )
   );
 }
+
+.container {
+  // background-color: aqua;
+  min-width: 375px;
+  min-height: 812px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.header {
+  // background-color: #ffffff;
+  padding: 5px;
+  display: flex; /* ใช้ Flexbox */
+  align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+  justify-content: flex-start; /* จัดให้อยู่ด้านซ้าย */
+  font-size: 20px;
+  font-weight: bold;
+  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 65px;
+}
+
+.header mat-icon {
+  margin-right: 30px;
+}
+
+.body {
+  flex: 1;
+  padding: 16px;
+}
+
+.body-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

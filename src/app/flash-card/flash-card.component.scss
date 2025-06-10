@@ -65,10 +65,8 @@
     border-radius: 10px;
     margin-bottom: 10px;
 }
-
 .button-container {
     display: flex;
-    justify-content: center;
-    gap: 16px; /* เพิ่มระยะห่างระหว่างปุ่ม */
-    margin-top: 16px; /* เพิ่มระยะห่างด้านบน */
+    justify-content: space-between;
+    margin-top: 16px;
 }

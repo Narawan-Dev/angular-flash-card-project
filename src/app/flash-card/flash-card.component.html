@@ -1,41 +1,50 @@
-<div class="flash-card-container" *ngIf="remainingCards.length > 0" (click)="toggleFlip()">
-    <mat-card class="flash-card" [class.flipped]="isFlipped" [class.forgotten]="isForgotten">
-      <!-- ด้านหน้า -->
-      <div class="card-face card-front" *ngIf="isCardVisible">
-        <h2 style="margin: 0;">{{ getFrontTitle(currentCard) }}</h2>
-        <p style="color: gray; font-size: small;" *ngIf="isShowDescription">{{ getFrontDescription(currentCard) }}</p> 
-        <button *ngIf="!isFlipped" mat-raised-button color="accent" style="margin-top: 15px;" (click)="speakText(getFrontTitle(currentCard)); $event.stopPropagation()">
-          <mat-icon style="margin: 0;">volume_up</mat-icon>
-        </button>
-      </div>
-      <!-- ด้านหลัง -->
-      <div class="card-face card-back">
-        <img [src]="getBackImage(currentCard)" alt="Image" />
-        <h3 style="margin-top: 15px; margin-bottom: 0px;">{{ getBackTitle(currentCard) }}</h3>
-        <p style="color: gray; font-size: small;" *ngIf="isShowDescription">{{ getBackDescription(currentCard) }}</p>
-        <button *ngIf="isFlipped" mat-raised-button color="accent" style="margin-top: 15px;" (click)="speakText(getBackTitle(currentCard)); $event.stopPropagation()">
-          <mat-icon style="margin: 0;">volume_up</mat-icon>
-        </button>
-      </div>
-    </mat-card>
-</div>
+<div class="container" fxLayout="column" fxLayoutAlign="space-between stretch">
+  <div class="header">
+    <button mat-icon-button (click)="onResetCategory()">
+      <mat-icon style="margin: 0; color: #ffffff;">arrow_back</mat-icon>
+    </button>
+    <h2 style="color: #ffffff;">Flash Card</h2>
+  </div>
 
-<div class="flash-card-container" *ngIf="remainingCards.length === 0">
-  <mat-card class="flash-card">
-    <div class="card-face card-end">
-      <h2 style="margin-top: 0px;">🎉 เก่งมาก!</h2>
-      <span fxLayoutAlign="center center" style="text-align: center; font-size: large;">คุณจำได้ครบทุกคำแล้ว</span>
+  <div class="body body-card" >
+    <div class="flash-card-container" fxLayoutAlign="center center" *ngIf="remainingCards.length > 0" (click)="toggleFlip()">
+      <mat-card class="flash-card" [class.flipped]="isFlipped" [class.forgotten]="isForgotten">
+        <!-- ด้านหน้า -->
+        <div class="card-face card-front" *ngIf="isCardVisible">
+          <h2 style="margin: 0;">{{ getFrontTitle(currentCard) }}</h2>
+          <p style="color: gray; font-size: small;" *ngIf="isShowDescription">{{ getFrontDescription(currentCard) }}</p> 
+          <button *ngIf="!isFlipped" mat-raised-button color="accent" style="margin-top: 15px;" (click)="speakText(getFrontTitle(currentCard)); $event.stopPropagation()">
+            <mat-icon style="margin: 0;">volume_up</mat-icon>
+          </button>
+        </div>
+        <!-- ด้านหลัง -->
+        <div class="card-face card-back">
+          <img [src]="getBackImage(currentCard)" alt="Image" />
+          <h3 style="margin-top: 15px; margin-bottom: 0px;">{{ getBackTitle(currentCard) }}</h3>
+          <p style="color: gray; font-size: small;" *ngIf="isShowDescription">{{ getBackDescription(currentCard) }}</p>
+          <button *ngIf="isFlipped" mat-raised-button color="accent" style="margin-top: 15px;" (click)="speakText(getBackTitle(currentCard)); $event.stopPropagation()">
+            <mat-icon style="margin: 0;">volume_up</mat-icon>
+          </button>
+        </div>
+      </mat-card>
     </div>
-  </mat-card>
-</div>
 
-<div *ngIf="this.remainingCards.length > 0" 
-  fxLayout="row" fxLayoutAlign="space-between center"
-  style="width: 100%; max-width: 400px; margin: 0 auto; padding: 16px;">
-    <button mat-raised-button (click)="dontRemember()">
-      <mat-icon>close</mat-icon> จำไม่ได้
-    </button>
-    <button mat-raised-button (click)="remember()">
-      <mat-icon>check</mat-icon> จำได้แล้ว
-    </button>
+    <div class="flash-card-container" *ngIf="remainingCards.length === 0">
+      <mat-card class="flash-card">
+        <div class="card-face card-end">
+          <h2 style="margin-top: 0px;">🎉 เก่งมาก!</h2>
+          <span fxLayoutAlign="center center" style="text-align: center; font-size: large;">คุณจำได้ครบทุกคำแล้ว</span>
+        </div>
+      </mat-card>
+    </div>
+
+    <div *ngIf="this.remainingCards.length > 0" class="button-container" fxLayout="row" fxLayoutAlign="space-between center" style="margin-top: 50px;">
+      <button mat-raised-button color="warn" (click)="dontRemember()">
+        <mat-icon>close</mat-icon> จำไม่ได้
+      </button>
+      <button mat-raised-button color="primary" (click)="remember()">
+        <mat-icon>check</mat-icon> จำได้แล้ว
+      </button>
+    </div>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FlashCard } from '../models/flash-card.model';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
@@ -23,6 +23,7 @@ export class FlashCardComponent {
   @Input() category!: FlashCardCategory;
   @Input() isReversed: boolean = false;
   @Input() isShowDescription: boolean = false;
+  @Output() resetCategory = new EventEmitter<void>();
 
   remainingCards: FlashCard[] = [];
   forgottenCards: FlashCard[] = [];
@@ -136,5 +137,9 @@ export class FlashCardComponent {
     } else {
       console.error('Web Speech API ไม่รองรับในเบราว์เซอร์นี้');
     }
+  }
+
+  onResetCategory() {
+    this.resetCategory.emit(); // ส่ง Event เมื่อกดปุ่ม "arrow_back"
   }
 }
