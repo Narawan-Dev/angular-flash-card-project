@@ -50,11 +50,11 @@ export class FlashCardComponent {
     this.pickRandomCard();
 
     // พูดคำทันทีเมื่อเข้าครั้งแรก
-    if (this.currentCard) {
-      const title = this.getFrontTitle(this.currentCard);
-      const desc = this.getFrontDescription(this.currentCard);
-      this.speakText(`${title} ${desc}`);
-    }
+    // if (this.currentCard) {
+    //   const title = this.getFrontTitle(this.currentCard);
+    //   const desc = this.getFrontDescription(this.currentCard);
+    //   this.speakText(`${title} ${desc}`);
+    // }
   }
 
   getFrontTitle(card: FlashCard): string {
