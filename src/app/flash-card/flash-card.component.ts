@@ -48,6 +48,13 @@ export class FlashCardComponent {
     // Clone cards เพื่อไม่กระทบต้นฉบับ
     this.remainingCards = [...this.category.cards];
     this.pickRandomCard();
+
+    // พูดคำทันทีเมื่อเข้าครั้งแรก
+    if (this.currentCard) {
+      const title = this.getFrontTitle(this.currentCard);
+      const desc = this.getFrontDescription(this.currentCard);
+      this.speakText(`${title} ${desc}`);
+    }
   }
 
   getFrontTitle(card: FlashCard): string {
@@ -98,6 +105,9 @@ export class FlashCardComponent {
     setTimeout(() => {
       this.remainingCards = this.remainingCards.filter(card => card !== this.currentCard);
       this.pickRandomCard();
+      if (this.currentCard) {
+        this.speakText(this.getFrontTitle(this.currentCard));
+      }
     }, 100);
   }
 
@@ -111,6 +121,9 @@ export class FlashCardComponent {
       this.forgottenCards.push(this.currentCard);
       this.remainingCards = this.remainingCards.filter(card => card !== this.currentCard);
       this.pickRandomCard();
+      if (this.currentCard) {
+        this.speakText(this.getFrontTitle(this.currentCard));
+      }
     }, 100);
   }
 
