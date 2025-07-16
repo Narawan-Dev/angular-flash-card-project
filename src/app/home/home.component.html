@@ -1,10 +1,10 @@
-<div class="container" fxLayout="column" fxLayoutAlign="center center">
-    <div *ngIf="!selectedCategory" class="header" fxLayoutAlign="center center" style="justify-content: flex-end">
+<div class="container" fxLayout="column" fxLayoutAlign="start stretch" style="height: 100vh;">
+    <div *ngIf="!selectedCategory" class="header" fxLayoutAlign="center center" style="justify-content: flex-end; height: 10%;">
         <button mat-raised-button color="primary" routerLink="/settings">
             <mat-icon style="margin: 0;">settings</mat-icon>
         </button>
     </div>
-    <div *ngIf="!selectedCategory" class="body" fxLayout="column" fxLayoutAlign="center stretch" style="padding: 16px;">
+    <div *ngIf="!selectedCategory" class="body" fxLayout="column" fxLayoutAlign="center stretch" style="padding: 16px; height: 80%;">
         <app-category-select (categorySelected)="onCategorySelected($event)"></app-category-select>
     </div>
 

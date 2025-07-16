@@ -18,8 +18,8 @@ html, body {
 
 .container {
   // background-color: aqua;
-  min-width: 375px;
-  min-height: 812px;
+  // min-width: 375px;
+  // min-height: 812px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -51,4 +51,8 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+html, body {
+  background-color: #4a3c36;
 }
